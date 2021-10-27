@@ -1,0 +1,13 @@
+
+1. React JS là gì ?
+- Là 1 thư viện javascript dùng để xây dựng UI, UI ở đây được dùng chính ở 2 nền tảng Web và Mobile
+
+2. Tại sao nên học React JS 
+- Độ hot
+- Cộng đồng lớn
+- Được đánh giá là thân thiện với SEO (Search Engine Optimization) trong những library/framework javascript 
+- Khả năng mở rộng tốt, tái sử dụng cao
+- Hiệu suất cao
+- Phát triển nhanh chóng
+- Khả năng thích nghi ngược (giữa các phiên bản cao-thấp)
+- Tương lai sáng

@@ -1,0 +1,62 @@
+
+1, Function thường
+function logger(log) {
+	console.log(log);
+}
+
+2, Expression function
+const logger = function(log) {
+	console.log(log);
+}
+
+3, Arrow function
+Cách 1 :
+const logger = (log) => {
+	console.log(log);
+}
+Cách 2 : 
+const logger = log => console.log(log);
+
+logger('Message...');
+
+VD 1: 
+Cách 1 : 
+const sum = (a, b) => {
+	return a+b;
+}
+Cách 2 : 
+const sum = (a, b) => a+b;
+
+VD 2 :
+const sum = (a, b) => ({a : a, b : b}); // return về 1 object
+
+console.log(sum(2, 2));
+
+VD 3 :
+// Khai báo 1 contructor
+Cách 1 :
+const Course = function(name, price) {
+	this.name = name;
+	this.price = price;
+}
+Cách 2 : 
+const Course = (name, price) => {
+	this.name = name;
+	this.price = price;		
+}
+// => Lỗi, arrow function không thể dùng với contructor 
+const jsCourse = new Course('Javascript', 1000);
+
+console.log(jsCourse);
+
+
+
+
+
+
+
+
+
+
+
+
