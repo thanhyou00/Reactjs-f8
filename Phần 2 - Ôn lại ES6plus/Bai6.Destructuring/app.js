@@ -30,3 +30,30 @@ const logger = (...rest) => {
     console.log(rest); // Output : (8) [1, 2, 3, 4, 5, 6, 7, 8]
 }
 logger(1,2,3,4,5,6,7,8); 
+
+// Ví dụ 4 :
+const logger2 = (a, ...rest) => {
+    console.log(rest); // Output : (3) [2, 3, 4]
+}
+logger2(1, 2, 3, 4);
+
+// Ví dụ 5 :
+
+const logger3 = ({name, price, ...rest}) => { // Tham số là 1 objects
+    console.log(name); // Output :  Javascript
+    console.log(price); // Output : 1000
+    console.log(rest); // Output : {description: 'description content'}
+}
+logger3({
+  name : 'Javascript',
+  price : 1000,
+  description : 'description content',
+});
+
+// Ví dụ 6 : 
+const logger4 = ([a, b, ...rest])=> {
+    console.log(a); // Output : 1
+    console.log(b); // Output : 2
+    console.log(rest); // Output : (4) [3, 4, 5, 6]
+}
+logger4([1, 2, 3, 4, 5, 6]);
