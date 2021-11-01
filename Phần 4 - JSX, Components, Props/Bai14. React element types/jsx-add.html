@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript XML</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+    function Content() {
+        return(
+            <div className='post-item'>
+                <img src="https://cdn.fullstack.edu.vn/f8-learning/courses/13/13.png" alt="ReactJS tại F8" />
+                <h2 className='post-title'>TyperScript là gì, Vì sao nên dùng TyperScript</h2>
+                <p className='post-desc'>Typescript là một dự án mã nguồn mở được Microsoft phát triển, được xem là một phiên bản nâng cao của Javascript.</p>
+                <p className='post-published'>4 ngày trước · 6 phút đọc</p>
+            </div>
+        );
+    };
+
+        const app = (
+            <div className='posts-list'>
+                <Content />
+                <Content />
+            </div>
+        );
+        ReactDOM.render(app, document.getElementById('root'));
+    </script>
+</body>
+</html>
