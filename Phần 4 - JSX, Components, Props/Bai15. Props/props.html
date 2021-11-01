@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Props</title>
+</head>
+<body>
+    <!-- 
+        Props
+        
+        - React elements
+            - Sử dụng props giống như với attribute của thẻ HTML
+            - 2 props class, for => className, htmlFor
+            - Phải tuân theo quy ước có sẵn
+        - React components
+            - Sử dụng props giống như đối số cho Function
+            - Tự do đặt tên props
+                - Đặt theo camelCase
+                - *Có thể bao gồm dấu gạch ngang
+        - Chú ý : 
+            - Prop "key" là prop đặc biệt 
+            - Props cơ bản là đối số của Component
+                => Props có thể là bất cứ kiểu dữ liệu gì
+            - Sử dụng destructuring             
+     -->
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+    // PostItem.js
+    function PostItem1(props) { // Dùng props
+        return(
+            <div className='post-item'>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" />
+                <hr />
+                <img src={props.image} alt={props.title} />
+                <h2 className='post-title'>{props.title}</h2>
+                <p className='post-desc'>{props.description}</p>
+                <p className='post-published'>{props.published}</p>
+            </div>
+        );
+    };
+    function PostItem({
+        image,
+        title, 
+        description,
+        published
+    }) { // Dùng destructuring
+        return(
+            <div className='post-item'>
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" />
+                <hr />
+                <img src={image} alt={title} />
+                <h2 className='post-title'>{title}</h2>
+                <p className='post-desc'>{description}</p>
+                <p className='post-published'>{published}</p>
+            </div>
+        );
+    };
+        // App.js
+        function App() {
+            return(
+                <div id='wrapper'>
+                    <PostItem 
+                    title="1. TyperScript là gì, Vì sao nên dùng TyperScript"
+                    image="https://cdn.fullstack.edu.vn/f8-learning/courses/13/13.png"
+                    description="Typescript là một dự án mã nguồn mở được Microsoft phát triển, được xem là một phiên bản nâng cao của Javascript."
+                    published="4 ngày trước · 6 phút đọc"
+                    />                   
+                    <PostItem 
+                    title="2. TyperScript là gì, Vì sao nên dùng TyperScript"
+                    image="https://cdn.fullstack.edu.vn/f8-learning/courses/13/13.png"
+                    description="Typescript là một dự án mã nguồn mở được Microsoft phát triển, được xem là một phiên bản nâng cao của Javascript."
+                    published="4 ngày trước · 6 phút đọc"
+                    />
+                </div>
+            );
+        }
+        // index.js
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
