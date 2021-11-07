@@ -197,10 +197,10 @@
     }
   ];
     // courseItem.js
-    function CourseItem({ course }) {
+    function CourseItem({ course, onClick }) {
         return(
             <div>
-                <h2>{course.title}</h2>
+                <h2 onClick={()=>onClick(course)}>{course.title}</h2>
                 <img  src={course.thumbnail_cdn} />
                 <p >{course.students_count}</p>
                 <p >{course.description}</p>
@@ -210,12 +210,18 @@
     
     // App.js
     function App() {
+        // useCallback
+        const handleClick = (course) => {
+            console.log(course.title);
+        }
+
         return(
             <div id="wrapper">
                 {course.map(course=>(
                     <CourseItem 
                     key={course.id}
                     course={course}
+                    onClick={handleClick}
                     />
                 ))
                 }

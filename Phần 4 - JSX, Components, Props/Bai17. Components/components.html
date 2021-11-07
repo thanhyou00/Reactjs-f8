@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt tên Components</title>
+</head>
+<body>
+    
+    <!-- 
+        Làm việc với JSX
+        Phần I : 
+        - Xử lý DOM events
+        - Component do chúng ta tự định nghĩa phải viết in hoa kí tự đầu
+        - Chọn component trong một object
+        - Booleans, Null & Undefined không được render
+        - Kết hợp toán tử logic để render theo điều kiện
+        Phần II :
+        - Props trong JSX
+            - <YourComponent
+            propName1 = "String literals"
+            propName2 = {expression}
+            />
+            - Props default to "true"
+            - Spread/Rest props
+            - Children props
+                - <YourComponent>String literals</YourComponent>
+                - <YourComponent>{expression}</YourComponent>
+            - Render props    
+
+     -->
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+        function Button({title, href, onClick}) {
+            let Component = 'button';
+            const props = {};
+
+            if(href) {
+                Component = 'a';
+                props.href = href;
+            }
+            if(onClick) {
+                props.onClick=onClick;
+            }
+
+            return (
+                <Component {...props}>{title}</Component>
+            )
+        }
+        // App.js
+        function App() {
+            let firstAccess = true;
+            return (
+                <div id="wapper">
+                    <Button 
+                        title = 'Click me !'
+                        href = "https://fullstack.edu.vn/"
+                        onClick={()=>{console.log(Math.random())}}
+                    />        
+                    {firstAccess && <h1>Welcomt to F8 !</h1>}
+                </div>
+            )
+        }
+
+        // index.js
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
