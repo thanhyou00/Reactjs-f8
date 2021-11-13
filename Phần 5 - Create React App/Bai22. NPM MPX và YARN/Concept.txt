@@ -1,0 +1,22 @@
+
+1. NPM 
+- Project scope
++ npm install react react-dom => dependencies
++ npm i react react-dom => dependencies
+
++ npm install --save-dev react react-dom => devDependencies
++ npm i -D react react-dom => devDependencies
+
++ npm uninstall react react-dom
+- Global scope
++ npm i -g create-react-app
++ npm uninstall -g create-react-app
+
+2. NPX : Node => NPM , NPX
+- Tại sao dùng NPX ?
+- Gặp lỗi khi : npx create-react-app tiktok
+
+3. YARN & NPX
+4. YARN install
+5. Lưu ý 
+- Luôn bật development server (npm start || yarn start)
