@@ -1,0 +1,31 @@
+
+1. Chỉ dùng cho function component
+
+2. Component đơn giản và trở nên dễ hiểu
+- Không bị chia logic ra như methods trong lifecycle của Class Component
+- Không cần sử dụng "this"
+
+3. Sử dụng Hooks khi nào ?
+- Dự án mới => Hooks
+- Dự án cũ 
++ Component mới => Function component + Hooks
++ Component cũ => Giữ nguyên, có thời gian tối ưu sau
++ Lohic nghiệp vụ cần sử dụng các tính chất của OOP => Class component
+
+4. Người mới nên bắt đầu với Function hay Class component ?
+=> Function component
+
+5. Có kết hợp sử dụng Function component & Class component được không ?
+=> Được 
+
+* Các loại Hooks
+- useCallback
+- useContext
+- useDebugValue
+- useEffect
+- useImperativeHandle
+- useLayoutEffect
+- useMemo
+- useReducer
+- useRef
+- useState
