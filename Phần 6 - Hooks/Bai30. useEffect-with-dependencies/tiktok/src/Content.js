@@ -39,7 +39,7 @@ function Content() {
     const [type, setType] = useState('posts');
 
     useEffect(()=>{
-      document.title=title;
+      //document.title=title;
       // fetch
       fetch(`https://jsonplaceholder.typicode.com/${type}`)
       .then(res => res.json())
