@@ -35,77 +35,22 @@ import { useEffect, useState } from "react"
 const tabs = ['posts', 'comments', 'albums']
 
 function Content() {
-    const [title, setTitle] = useState('');
-    const [posts, setPosts] = useState([]);
-    const [type, setType] = useState('posts');
-    const [showGoToTop, setShowGoToTop] = useState(false);
-    const [width, setWidth] = useState(window.innerWidth);
-    useEffect(()=>{
-      //document.title=title;
-      // fetch
-      fetch(`https://jsonplaceholder.typicode.com/${type}`)
-      .then(res => res.json())
-      .then(posts=>{
-          setPosts(posts)
-      }) 
-    
-    },[type])
 
-    const handleScroll = () =>{
-        setShowGoToTop(window.scrollY>=200);
-    }
-    useEffect(()=>{
-        window.addEventListener('scroll',handleScroll);
+    const [countdown, setCountdown] = useState(180);
 
-        // Cleanup function
-        return ()=>{
-            window.removeEventListener('scroll',handleScroll);
-        }
-    },[]) 
-
-    const handleResize = () =>{
-        setWidth(window.innerWidth)
-    }
     useEffect(()=>{
-        window.addEventListener('resize',handleResize)
-    })
+        const timerId = setInterval(()=>{
+            setCountdown(preState => preState -1)
+        }    
+        ,1000);
+
+        return ()=>clearInterval(timerId);
+    },[])
 
     return (
         
         <div>
-            <div><h1>{width}</h1></div>
-            {tabs.map(tab=>(
-                <button 
-                key={tab}
-                style={type === tab ? {
-                    color: '#fff',
-                    backgroundColor : '#333',
-                } : {}}
-                onClick={()=>setType(tab)}
-                >
-                    {tab}
-                </button>
-            ))}
-            <input 
-            value={title}
-            onChange={e=>setTitle(e.target.value)}
-            />
-            <ul>
-                {posts.map(post=>(
-                    <li key={post.id}>{post.title || post.name}</li>
-                ))}
-            </ul>
-        {showGoToTop && (
-            <button
-            style={{
-                position:'fixed', 
-                right:20, 
-                bottom:20,
-            }}
-            >
-                Go to top
-            </button>
-        )}    
+             <h1>{countdown}</h1>  
         </div>
     )
 }
