@@ -1,5 +1,5 @@
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 
 
 function App() {
@@ -7,11 +7,16 @@ function App() {
   const [price, setPrice] = useState('')
   const [products, setProducts] = useState([])
 
+  const nameRef = useRef()
+
   const handleSubmit = ()=>{
     setProducts([...products, {
       name,
       price: +price
     }])
+    setName('')
+    setPrice('')
+    nameRef.current.focus();
   };
 
   const total = useMemo(()=>{
@@ -28,6 +33,7 @@ function App() {
     <div style={{padding: '10px 32px'}}>
       <input 
         value={name}
+        ref={nameRef}
         placeholder='Enter name...'
         onChange={e=>setName(e.target.value)}
       />
